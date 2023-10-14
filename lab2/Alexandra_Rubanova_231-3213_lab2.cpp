@@ -1,6 +1,3 @@
-﻿// Rubanova_Alexandra_Yuryevna_231-3213_lab2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
 #include <iostream>
 
 void triangle(int number)
@@ -13,12 +10,19 @@ void triangle(int number)
 	}
 }
 
-
+int factorial(int n)
+{
+	int nol = 1;
+	for (int i = 1; i <= n; i++) {
+		nol *= i;
+	}
+	return nol;
+}
 
 void task1()
 {
 	int triangle_number;
-	std::cout << "Task 1" << std::endl <<
+	std::cout << "Task 1\n" << std::endl <<
 		"Insert your number:" << std::endl;
 	std::cin >> triangle_number;
 	triangle(triangle_number);
@@ -27,16 +31,23 @@ void task1()
 
 void task2()
 {
-	int n, y = 1;
-	std::cout << "Task 2" << std::endl <<
-		"Insert your number:" << std::endl;
-	std::cin >> n;
+	double num, result = 1;
+	std::cout << "Task 2\n " << "Insert your number:"; 
+	std::cin >> num;
 
-	for (int k = 0; k <= n; k++) {
-		std::cout << y * ((n - k + 1)/k) << "\t";
-		y = y * ((n - k + 1) / k);
+	for (int k = 0; k <= num; k++)
+	{    
+		if (k == 0)
+		{
+			std::cout << 1 << " ";
+		}
+		else 
+		{
+			std::cout << result * ((num - k + 1)/ k) << " ";
+			result = result * ((num - k + 1) / k);		
+		}
 	}
-	std::cout << std::endl << std::endl;
+	std::cout << std::endl;
 }
 
 void task3()
@@ -64,25 +75,25 @@ int main()
 			"Insert anything else to shut down" << std::endl;
 		std::cin >> input;
 		switch (input) {
-		case 1:
-		{
-			task1();
-			break;
-		}
-		case 2:
-		{
-			task2();
-			break;
-		}
-		case 3:
-		{
-			task3();
-			break;
-		}
-		default:
-		{
-			return 0;
-		}
+			case 1:
+			{
+				task1();
+				break;
+			}
+			case 2:
+			{
+				task2();
+				break;
+			}
+			case 3:
+			{
+				task3();
+				break;
+			}
+			default:
+			{
+				return 0;
+			}
 		}
 	}
 }
